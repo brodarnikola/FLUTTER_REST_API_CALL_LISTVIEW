@@ -33,7 +33,7 @@ class _SelectedWordsState extends State<SelectedWords> {
   void startNewScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MyApp()),
+      MaterialPageRoute(builder: (context) => AlbumTitleScreen()),
     );
   }
 

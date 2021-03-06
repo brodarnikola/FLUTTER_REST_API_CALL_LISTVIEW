@@ -4,14 +4,14 @@ import 'dart:async';
 import 'remote/model/Album.dart';
 
 
-class MyApp extends StatefulWidget {
-  MyApp({Key key}) : super(key: key);
+class AlbumTitleScreen extends StatefulWidget {
+  AlbumTitleScreen({Key key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _AlbumTitleScreenState createState() => _AlbumTitleScreenState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
   Future<Album> futureAlbum;
 
   @override
