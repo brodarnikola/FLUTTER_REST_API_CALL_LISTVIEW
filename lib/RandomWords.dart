@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-import 'package:flutter_app_number2/AlbumTitleScreen.dart';
+import 'package:flutter_app_number2/SelectedWords.dart';
 
 class RandomWords extends StatefulWidget {
   @override
@@ -14,8 +14,6 @@ class _RandomWordsState extends State<RandomWords> {
   final _saved = Set<WordPair>();
   final TextStyle _biggerFont = const TextStyle(fontSize: 18);
 
-  //_buildSuggestions()
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +22,14 @@ class _RandomWordsState extends State<RandomWords> {
         centerTitle: true,
         title: Text('Startup Name Generator5'),
         actions: [
-          IconButton(icon: Icon(Icons.list), onPressed: _pushSaved),
+          IconButton(icon: Icon(Icons.list), onPressed: startSelectedWordsScreen),
         ],
       ),
       body: _buildSuggestions(),
     );
   }
 
+  // left here just as a example, draw screen inside screen
   void _pushSaved() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -56,7 +55,7 @@ class _RandomWordsState extends State<RandomWords> {
               centerTitle: true,
               title: Text('Saved Suggestions'),
               actions: [
-                IconButton(icon: Icon(Icons.list), onPressed: startNewScreen),
+                IconButton(icon: Icon(Icons.list)/*, onPressed: startNewScreen*/),
               ],
             ),
             body: ListView(children: divided),
@@ -66,13 +65,14 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
+  void startSelectedWordsScreen() {
 
-  void startNewScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MyApp()),
+      MaterialPageRoute(builder: (context) => SelectedWords(selectedWords: _saved)),
     );
   }
+
 
   Widget _buildSuggestions() {
     return ListView.builder(
