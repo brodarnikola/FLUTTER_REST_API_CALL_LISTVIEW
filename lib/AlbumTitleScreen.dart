@@ -21,7 +21,6 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     Widget titleSection = new Container(
       padding: const EdgeInsets.all(10.0), //Top, Right, Bottom, Left
       child: new Row(
@@ -39,7 +38,7 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
                 //Need to add space below this Text ?
                 new Text(
                   "This channel contains tutorial videos in Flutter, "
-                      "React Native, React, Angular",
+                  "React Native, React, Angular",
                   style: new TextStyle(color: Colors.grey[850], fontSize: 16.0),
                 ),
               ],
@@ -78,8 +77,6 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
           style: new TextStyle(color: Colors.grey[850], fontSize: 16.0)),
     );
 
-
-
     return MaterialApp(
       title: 'Fetch Data Example',
       theme: ThemeData(
@@ -94,24 +91,78 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
             FutureBuilder<Album>(
               future: futureAlbum,
               builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Text(snapshot.data.title);
+                List<Widget> children;
+                if ( snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+                  children = <Widget>[
+                    Padding(
+                        padding: const EdgeInsets.only(top: 6),
+                        child: Icon(
+                          Icons.check_circle_outline,
+                          color: Colors.green,
+                          size: 60,
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6, bottom: 6),
+                      child: Text(
+                          'Title: ${snapshot.data.title} \nId: ${snapshot.data.id}'),
+                    )
+                  ];
                 } else if (snapshot.hasError) {
-                  return Text("${snapshot.error}");
+                  children = <Widget>[
+                    Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                      size: 60,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Text('Error: ${snapshot.error}'),
+                    )
+                  ];
+                } else {
+                  children = <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: SizedBox(
+                        child: CircularProgressIndicator(),
+                        width: 50,
+                        height: 50,
+                      )
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16, bottom: 16),
+                      child: Text('Awaiting result...'),
+                    )
+                  ];
                 }
-
-                // By default, show a loading spinner.
-                return CircularProgressIndicator();
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: children,
+                  ),
+                );
+                // if( snapshot.connectionState == ConnectionState.done ) {
+                //   if (snapshot.hasData) {
+                //     return Text(
+                //         "Title: " + snapshot.data.title + "\n" + "Id: " +
+                //             snapshot.data.id.toString());
+                //   } else if (snapshot.hasError) {
+                //     return Text("${snapshot.error}");
+                //   }
+                // }
+                // else
+                // // By default, show a loading spinner.
+                // return CircularProgressIndicator();
               },
             ),
-            Image.asset('images/tutorialChannel.png', fit: BoxFit.cover),
+            Image.asset('images/lion.jpg', fit: BoxFit.cover),
             //You can add more widget bellow
             titleSection,
             fourButtonsSection,
             bottomTextSection,
             fourButtonsSection,
             bottomTextSection,
-
           ],
         ),
       ),
@@ -141,11 +192,13 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
         new Icon(icon, color: tintColor),
         new Container(
           margin: const EdgeInsets.only(top: 5.0),
-          child: new Text(buttonTitle, style: new TextStyle(fontSize: 16.0,
-              fontWeight: FontWeight.w600, color: tintColor),),
+          child: new Text(
+            buttonTitle,
+            style: new TextStyle(
+                fontSize: 16.0, fontWeight: FontWeight.w600, color: tintColor),
+          ),
         )
       ],
     );
   }
-
 }

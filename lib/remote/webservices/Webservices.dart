@@ -5,6 +5,7 @@ import 'package:flutter_app_number2/remote/model/Album.dart';
 import 'package:http/http.dart' as http;
 
 Future<Album> fetchAlbum() async {
+  await Future.delayed(Duration(seconds: 2));
   final response =
   await http.get(Uri.https('jsonplaceholder.typicode.com', 'albums/5'));
 
