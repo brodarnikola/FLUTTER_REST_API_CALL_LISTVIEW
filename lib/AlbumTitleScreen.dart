@@ -142,18 +142,6 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
                     children: children,
                   ),
                 );
-                // if( snapshot.connectionState == ConnectionState.done ) {
-                //   if (snapshot.hasData) {
-                //     return Text(
-                //         "Title: " + snapshot.data.title + "\n" + "Id: " +
-                //             snapshot.data.id.toString());
-                //   } else if (snapshot.hasError) {
-                //     return Text("${snapshot.error}");
-                //   }
-                // }
-                // else
-                // // By default, show a loading spinner.
-                // return CircularProgressIndicator();
               },
             ),
             Image.asset('images/lion.jpg', fit: BoxFit.cover),
@@ -166,22 +154,6 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
           ],
         ),
       ),
-      //   body: Center(
-      //     child: FutureBuilder<Album>(
-      //       future: futureAlbum,
-      //       builder: (context, snapshot) {
-      //         if (snapshot.hasData) {
-      //           return Text(snapshot.data.title);
-      //         } else if (snapshot.hasError) {
-      //           return Text("${snapshot.error}");
-      //         }
-      //
-      //         // By default, show a loading spinner.
-      //         return CircularProgressIndicator();
-      //       },
-      //     ),
-      //   ),
-      // ),
     );
   }
 
