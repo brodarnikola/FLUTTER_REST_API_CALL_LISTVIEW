@@ -88,10 +88,10 @@ class _ExampleDragAndDropState extends State<ExampleDragAndDrop>
       title: Text(
         'Order Food',
         style: Theme.of(context).textTheme.headline4?.copyWith(
-              fontSize: 36,
-              color: const Color(0xFFF64209),
-              fontWeight: FontWeight.bold,
-            ),
+          fontSize: 36,
+          color: const Color(0xFFF64209),
+          fontWeight: FontWeight.bold,
+        ),
       ),
       backgroundColor: const Color(0xFFF7F7F7),
       elevation: 0,
@@ -157,10 +157,8 @@ class _ExampleDragAndDropState extends State<ExampleDragAndDrop>
         horizontal: 8.0,
         vertical: 20.0,
       ),
-      height: 200.0,
-      child: ListView(
-          scrollDirection: Axis.horizontal,
-            children: _people.map(_buildPersonWithDropZone).toList(),
+      child: Row(
+        children: _people.map(_buildPersonWithDropZone).toList(),
       ),
     );
   }
@@ -231,14 +229,15 @@ class CustomerCart extends StatelessWidget {
                   ),
                 ),
               ),
+
               const SizedBox(height: 8.0),
               Text(
                 customer.name,
                 style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                      color: textColor,
-                      fontWeight:
-                          hasItems ? FontWeight.normal : FontWeight.bold,
-                    ),
+                  color: textColor,
+                  fontWeight:
+                  hasItems ? FontWeight.normal : FontWeight.bold,
+                ),
               ),
               Visibility(
                 visible: hasItems,
@@ -251,18 +250,18 @@ class CustomerCart extends StatelessWidget {
                     Text(
                       customer.formattedTotalItemPrice,
                       style: Theme.of(context).textTheme.caption.copyWith(
-                            color: textColor,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        color: textColor,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 4.0),
                     Text(
                       '${customer.items.length} item${customer.items.length != 1 ? 's' : ''}',
                       style: Theme.of(context).textTheme.subtitle1.copyWith(
-                            color: textColor,
-                            fontSize: 12.0,
-                          ),
+                        color: textColor,
+                        fontSize: 12.0,
+                      ),
                     ),
                   ],
                 ),
@@ -326,16 +325,16 @@ class MenuListItem extends StatelessWidget {
                   Text(
                     name,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontSize: 18.0,
-                        ),
+                      fontSize: 18.0,
+                    ),
                   ),
                   const SizedBox(height: 10.0),
                   Text(
                     price,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                        ),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                    ),
                   ),
                 ],
               ),
@@ -401,9 +400,9 @@ class EmptyList extends StatelessWidget {
               Text(
                 'All set!',
                 style: Theme.of(context).textTheme.headline6?.copyWith(
-                      color: const Color(0xFF0E985E),
-                      fontSize: 48,
-                    ),
+                  color: const Color(0xFF0E985E),
+                  fontSize: 48,
+                ),
               )
             ],
           ),
@@ -442,7 +441,7 @@ class Customer {
 
   String get formattedTotalItemPrice {
     final totalPriceCents =
-        items.fold<int>(0, (prev, item) => prev + item.totalPriceCents);
+    items.fold<int>(0, (prev, item) => prev + item.totalPriceCents);
     return '\$${(totalPriceCents / 100.0).toStringAsFixed(2)}';
   }
 }
