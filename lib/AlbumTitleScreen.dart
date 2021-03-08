@@ -80,7 +80,7 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
     return MaterialApp(
       title: 'Fetch Data Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: Scaffold(
         appBar: AppBar(

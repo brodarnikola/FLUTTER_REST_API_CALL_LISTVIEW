@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_app_number2/SelectedWords.dart';
+import 'package:flutter_app_number2/SplitScreenAndDragDrop.dart';
 
 class RandomWords extends StatefulWidget {
   @override
@@ -26,6 +27,20 @@ class _RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: _buildSuggestions(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          navigationToSplitScreenByPercentageAndDragDropExample();
+        },
+        child: Icon(Icons.navigation),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
+  void navigationToSplitScreenByPercentageAndDragDropExample() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ExampleDragAndDrop()),
     );
   }
 
