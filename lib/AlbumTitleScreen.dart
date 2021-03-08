@@ -70,7 +70,7 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
       padding: const EdgeInsets.all(20.0),
       //How to show long text ?
       child: new Text(
-          '''I am Nguyen Duc Hoang, I live in Hanoi, Vietnam. I create this channel which contains videos in Swift programming language, python, NodeJS, Angular, Typescript, ReactJS, React Native, 
+          '''I am Nikola Brodar, I live in Mali Mihaljevec, Croatia. I have created this channel which contains videos in Swift programming language, python, NodeJS, Angular, Typescript, ReactJS, React Native, 
         ios and android programming, Kotlin programming, new technologies' overviews. 
         These videos will help people learn latest programming language and software framework. They will be also very useful for their work or business. My channel's languages are English and Vietnamese.
       ''',
