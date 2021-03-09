@@ -10,6 +10,30 @@ class NavigationViewBottomNavigation extends StatefulWidget {
 
 class _NavigationViewBottomNavigationState
     extends State<NavigationViewBottomNavigation> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +47,7 @@ class _NavigationViewBottomNavigationState
         ],
       ),
       body: Container(
+        child: _widgetOptions.elementAt(_selectedIndex),
         color: Colors.red,
       ),
       drawer: Drawer(
@@ -43,21 +68,25 @@ class _NavigationViewBottomNavigationState
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text("Home"),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          title: Text("Search"),
-        )
-      ]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text("Home"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            title: Text("Search"),
+          )
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
       ),
     );
   }
-
 }
