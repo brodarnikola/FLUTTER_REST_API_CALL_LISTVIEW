@@ -21,11 +21,7 @@ class _NavigationViewBottomNavigationState
     Text(
       'Index 1: Business',
       style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    )
   ];
 
   void _onItemTapped(int index) {
