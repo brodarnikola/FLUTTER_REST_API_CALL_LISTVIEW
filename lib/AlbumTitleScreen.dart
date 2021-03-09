@@ -131,7 +131,7 @@ class _AlbumTitleScreenState extends State<AlbumTitleScreen> {
                     ),
                     const Padding(
                       padding: EdgeInsets.only(top: 16, bottom: 16),
-                      child: Text('Awaiting result...'),
+                      child: Text('Downloading data from backend...'),
                     )
                   ];
                 }
