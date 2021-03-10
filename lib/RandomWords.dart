@@ -26,7 +26,10 @@ class _RandomWordsState extends State<RandomWords> {
         actions: [
           IconButton(
               icon: Icon(Icons.list), onPressed: startSelectedWordsScreen),
-          IconButton( icon: Icon(Icons.ac_unit), onPressed: startNavigationViewBottomNavigationScreen, )
+          IconButton(
+            icon: Icon(Icons.ac_unit),
+            onPressed: startNavigationViewBottomNavigationScreen,
+          )
         ],
       ),
       body: ListView(
@@ -42,34 +45,34 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
-  Widget titleSection = new Container(
+  Widget titleSection = Container(
     height: 89,
     padding: const EdgeInsets.all(10.0), //Top, Right, Bottom, Left
-    child: new Row(
+    child: Row(
       children: <Widget>[
-        new Expanded(
-          child: new Column(
+        Expanded(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              new Container(
+              Container(
                 padding: const EdgeInsets.only(bottom: 10.0),
-                child: new Text("Programming tutorials Channel",
-                    style: new TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18.0)),
+                child: Text("Programming tutorials Channel",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
               ),
               //Need to add space below this Text ?
-              new Text(
+              Text(
                 "This channel contains tutorial videos in Flutter, "
                 "React Native, React, Angular",
-                style: new TextStyle(color: Colors.grey[850], fontSize: 16.0),
+                style: TextStyle(color: Colors.grey[850], fontSize: 16.0),
               ),
             ],
           ),
         ),
-        new Icon(Icons.favorite, color: Colors.red),
-        new Text(
+        Icon(Icons.favorite, color: Colors.red),
+        Text(
           " 100",
-          style: new TextStyle(fontSize: 16.0),
+          style: TextStyle(fontSize: 16.0),
         ),
       ],
     ),
@@ -83,10 +86,10 @@ class _RandomWordsState extends State<RandomWords> {
   }
 
   // left here just as a example, draw screen inside screen
-  void _newScreenWithSelectedWords() {
+  void _ScreenWithSelectedWords() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        // NEW lines from here...
+        //  lines from here...
         builder: (BuildContext context) {
           final tiles = _saved.map(
             (WordPair pair) {
@@ -108,8 +111,7 @@ class _RandomWordsState extends State<RandomWords> {
               centerTitle: true,
               title: Text('Saved Suggestions'),
               actions: [
-                IconButton(
-                    icon: Icon(Icons.list) /*, onPressed: startNewScreen*/),
+                IconButton(icon: Icon(Icons.list) /*, onPressed: startScreen*/),
               ],
             ),
             body: ListView(children: divided),
@@ -130,8 +132,7 @@ class _RandomWordsState extends State<RandomWords> {
   void startNavigationViewBottomNavigationScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (context) => NavigationViewBottomNavigation()),
+      MaterialPageRoute(builder: (context) => NavigationViewBottomNavigation()),
     );
   }
 
@@ -172,44 +173,6 @@ class _RandomWordsState extends State<RandomWords> {
     ]);
   }
 
-  // Widget buildSuggestions() {
-  //   return Container(
-  //       child: Wrap(
-  //           direction: Axis.vertical,
-  //           children: [
-  //         ListView.builder(
-  //             padding: const EdgeInsets.all(16),
-  //             // The itemBuilder callback is called once per suggested
-  //             // word pairing, and places each suggestion into a ListTile
-  //             // row. For even rows, the function adds a ListTile row for
-  //             // the word pairing. For odd rows, the function adds a
-  //             // Divider widget to visually separate the entries. Note that
-  //             // the divider may be difficult to see on smaller devices.
-  //             itemBuilder: (BuildContext _context, int i) {
-  //               // Add a one-pixel-high divider widget before each row
-  //               // in the ListView.
-  //               if (i.isOdd) {
-  //                 return Divider();
-  //               }
-  //
-  //               // The syntax "i ~/ 2" divides i by 2 and returns an
-  //               // integer result.
-  //               // For example: 1, 2, 3, 4, 5 becomes 0, 1, 1, 2, 2.
-  //               // This calculates the actual number of word pairings
-  //               // in the ListView,minus the divider widgets.
-  //               final int index = i ~/ 2;
-  //               // If you've reached the end of the available word
-  //               // pairings...
-  //               if (index >= _suggestions.length) {
-  //                 // ...then generate 10 more and add them to the
-  //                 // suggestions list.
-  //                 _suggestions.addAll(generateWordPairs().take(10));
-  //               }
-  //               return _buildRow(_suggestions[index]);
-  //             })
-  //       ]));
-  // }
-
   Widget _buildRow(WordPair pair) {
     final alreadySaved = _saved.contains(pair);
     return ListTile(
@@ -218,12 +181,12 @@ class _RandomWordsState extends State<RandomWords> {
         style: _biggerFont,
       ),
       trailing: Icon(
-        // NEW from here...
+        //  from here...
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.blue : null,
       ),
       onTap: () {
-        // NEW lines from here...
+        //  lines from here...
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
