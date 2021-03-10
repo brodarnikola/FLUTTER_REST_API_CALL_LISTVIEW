@@ -83,7 +83,7 @@ class _RandomWordsState extends State<RandomWords> {
   }
 
   // left here just as a example, draw screen inside screen
-  void _pushSaved() {
+  void _newScreenWithSelectedWords() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         // NEW lines from here...
