@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
-import 'package:flutter_app_number2/AlbumTitleScreen.dart';
-import 'package:flutter_app_number2/view/layout_example/LayoutExamplesScreen.dart';
 
-class NavigationViewBottomNavigation extends StatefulWidget {
+class LayoutExamplesScreen extends StatefulWidget {
   @override
-  _NavigationViewBottomNavigationState createState() =>
-      _NavigationViewBottomNavigationState();
+  _LayoutExamplesScreenState createState() =>
+      _LayoutExamplesScreenState();
 }
 
-class _NavigationViewBottomNavigationState
-    extends State<NavigationViewBottomNavigation> {
+class _LayoutExamplesScreenState
+    extends State<LayoutExamplesScreen> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -199,20 +196,9 @@ class _NavigationViewBottomNavigationState
         onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          navigateToLayoutExampleScreen();
-        },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
     );
   }
-
-  void navigateToLayoutExampleScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => AlbumTitleScreen()),
-    );
-  }
-
-
 }
