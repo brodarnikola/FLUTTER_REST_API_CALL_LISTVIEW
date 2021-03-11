@@ -22,6 +22,7 @@ class _LinearLayoutScreenState extends State<LinearLayoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Linear layout example"),
         bottom: PreferredSize(
             child: LinearAttributeControllerWidget(
                 isRow, mainAxisAlignment, crossAxisAlignment, mainAxisSize,

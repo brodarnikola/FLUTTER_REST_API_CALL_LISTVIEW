@@ -7,12 +7,12 @@ class RowWidget extends StatelessWidget {
 
   RowWidget(
       {this.mainAxisAlignment = MainAxisAlignment.start,
-        this.crossAxisAlignment = CrossAxisAlignment.start,
-        this.mainAxisSize = MainAxisSize.min});
+      this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisSize = MainAxisSize.min});
 
   @override
   Widget build(BuildContext context) {
-    return new Row(
+    return Row(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: mainAxisSize,
@@ -28,12 +28,12 @@ class ColumnWidget extends StatelessWidget {
 
   ColumnWidget(
       {this.mainAxisAlignment = MainAxisAlignment.start,
-        this.crossAxisAlignment = CrossAxisAlignment.start,
-        this.mainAxisSize = MainAxisSize.min});
+      this.crossAxisAlignment = CrossAxisAlignment.start,
+      this.mainAxisSize = MainAxisSize.min});
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return Column(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       mainAxisSize: mainAxisSize,
@@ -42,37 +42,18 @@ class ColumnWidget extends StatelessWidget {
   }
 }
 
-List<Widget> getWidgets() {
-  List<Widget> widgets = new List<Widget>();
-  widgets.add(new CircleAvatar(
-    radius: 25.0,
-    child: new Text("1"),
-  ));
-  widgets.add(new Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: new CircleAvatar(
-      radius: 50.0,
-      child: new Text("2"),
-    ),
-  ));
-  widgets.add(new CircleAvatar(
-    radius: 25.0,
-    child: new Text("3"),
-  ));
-  return widgets;
-}
 
 List<Widget> getIconWidgets() {
-  List<Widget> widgets = new List<Widget>();
-  widgets.add(new Icon(
+  List<Widget> widgets = List<Widget>();
+  widgets.add(Icon(
     Icons.access_time,
     size: 50.0,
   ));
-  widgets.add(new Icon(
+  widgets.add(Icon(
     Icons.pie_chart,
     size: 100.0,
   ));
-  widgets.add(new Icon(
+  widgets.add(Icon(
     Icons.email,
     size: 50.0,
   ));
