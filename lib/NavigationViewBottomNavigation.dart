@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_app_number2/AlbumTitleScreen.dart';
-import 'package:flutter_app_number2/view/layout_example/LayoutExamplesScreen.dart';
+import 'package:flutter_app_number2/view/layout_example/LinearLayoutScreen.dart';
 
 class NavigationViewBottomNavigation extends StatefulWidget {
   @override
@@ -210,7 +210,7 @@ class _NavigationViewBottomNavigationState
   void navigateToLayoutExampleScreen() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => AlbumTitleScreen()),
+      MaterialPageRoute(builder: (context) => LinearLayoutScreen()),
     );
   }
 
